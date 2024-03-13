@@ -1,0 +1,27 @@
+@font-face {
+    font-family: "HelveticaNeueCyr";
+    src: local("HelveticaNeueCyr"),
+    url("./assets/fonts/HelveticaNeueCyr-Roman.woff") format("woff");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "HelveticaNeueCyr";
+    src: local("HelveticaNeueCyr"),
+    url("./assets/fonts/HelveticaNeueCyr-Bold.woff") format("woff");
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: "TTRoundsNeueEducationalCompressed";
+    src: local("TTRoundsNeueEducationalCompressed"),
+    url("./assets/fonts/TTRoundsNeueEducationalCompressed-Bold.ttf") format("truetype");
+    font-weight: 600;
+}
+
+:root {
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}

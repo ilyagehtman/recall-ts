@@ -1,0 +1,46 @@
+@import "fonts.css";
+
+:root {
+    --bg-color: #FFF;
+
+    --color: #4C4D4E;
+    --alt-color: #E0E2E5;
+    --accent-color: #FF9EC1;
+    --button-shadow: 0 4px 4px 0 rgba(193, 197, 199, 0.60);
+    --preview-container-shadow: 0 4px 14px 0 #D9D9D9;
+
+    --font-size: 20px;
+    --small-font-size: 16px;
+    --header-font-size: 40px;
+
+    --adaptive-ph-font-size: 16px;
+    --adaptive-span-font-size: 16px;
+    --adaptive-header-font-size: 26px;
+
+    --recall-container-content-max-width: 1440px;
+}
+
+:root[theme="dark"] {
+    --bg-color: #4C4D4E;
+
+    --color: #FFF;
+    --alt-color: #E0E2E5;
+    --accent-color: #FF9EC1;
+    --button-shadow: 0 4px 4px 0 rgba(175, 175, 175, 0.6);
+    --preview-container-shadow: 0 4px 14px 0 rgba(175, 175, 175, 0.6)
+}
+
+::selection {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+}
+
+body {
+    background-color: var(--bg-color);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}

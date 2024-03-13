@@ -1,0 +1,28 @@
+.slider
+  gap: 25px
+  display: flex
+  flex-direction: column
+
+  .sliderContent
+    gap: 14px
+    display: flex
+    flex-direction: column
+
+    input
+      -webkit-appearance: none
+      appearance: none
+      background-color: var(--alt-color)
+      cursor: pointer
+      height: 3px
+      width: 200px
+
+      &::-webkit-slider-thumb
+        -webkit-appearance: none
+        background-color: var(--color)
+        width: 20px
+        height: 20px
+        border-radius: 50%
+
+    .sliderHelper
+      display: flex
+      justify-content: space-between

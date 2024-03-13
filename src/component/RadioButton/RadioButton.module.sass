@@ -1,0 +1,30 @@
+.radioButton
+  gap: 10px
+  display: flex
+  cursor: pointer
+  align-items: center
+
+  span
+    text-transform: lowercase
+
+  input
+    margin-bottom: 3px
+    -webkit-appearance: none
+    appearance: none
+    width: 10px
+    height: 10px
+    border: 2px solid var(--color)
+    border-radius: 100%
+
+    &:checked
+      background-color: var(--color)
+
+.colorRadioButton
+  input
+    cursor: pointer
+    appearance: none
+    -webkit-appearance: none
+    width: 22px
+    height: 22px
+    border-radius: 100%
+

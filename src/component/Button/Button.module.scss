@@ -1,0 +1,54 @@
+.button {
+  border: none;
+  appearance: none;
+
+  width: 200px;
+  height: 46px;
+  border-radius: 23px;
+  box-shadow: var(--button-shadow);
+  background-color: var(--accent-color);
+
+
+  color: var(--bg-color);
+  font-family: HelveticaNeueCyr, serif;
+  font-size: 24px;
+  font-weight: 600;
+  cursor: pointer;
+
+  &:active:not(:disabled) {
+    padding-top: 4px;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    color: var(--alt-color);
+  }
+}
+
+.alt {
+  color: var(--color);
+  background-color: var(--bg-color);
+}
+
+.cartButton {
+  appearance: none;
+
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+
+  border: 5px solid var(--accent-color);
+
+  font-family: HelveticaNeueCyr, serif;
+  font-size: 24px;
+  font-weight: 600;
+  cursor: pointer;
+
+  color: var(--accent-color);
+  background-color: var(--bg-color);
+  padding-top: 4px;
+
+  &:active {
+    padding-top: 6px;
+  }
+}
