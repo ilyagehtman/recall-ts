@@ -1,4 +1,5 @@
 .button {
+
   border: none;
   appearance: none;
 
@@ -22,6 +23,7 @@
   &:disabled {
     cursor: not-allowed;
     color: var(--alt-color);
+    background-color: var(--bg-color);
   }
 }
 

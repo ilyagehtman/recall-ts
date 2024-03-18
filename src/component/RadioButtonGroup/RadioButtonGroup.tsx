@@ -6,7 +6,7 @@ import { String } from "../String/String.tsx";
 type RadioButtonGroupProps = {
   label: string
   options: { label: string; value: string }[];
-  selectedValue: string;
+  selectedValue?: string;
   onChange: (value: string) => void;
 }
 
@@ -34,9 +34,9 @@ const RadioButtonGroup: React.FC<RadioButtonGroupProps> = ({ label, options, sel
 
 type ColorRadioButtonGroupProps = {
   label: string
-  options: { color: string; value: string }[];
-  selectedValue: string;
-  onChange: (value: string) => void;
+  options: { name: string; hex: string }[];
+  selectedValue: { name: string, hex: string };
+  onChange: (value: { name: string, hex: string }) => void;
 }
 
 export const ColorRadioButtonGroup: React.FC<ColorRadioButtonGroupProps> = ({ label, options, selectedValue, onChange }) => {
@@ -49,17 +49,16 @@ export const ColorRadioButtonGroup: React.FC<ColorRadioButtonGroupProps> = ({ la
         { options.map((option, index) => (
           <ColorRadioButton
             key={ index }
-            color={ option.color }
-            value={ option.value }
-            checked={ option.value === selectedValue }
-            onChange={ () => onChange(option.value) }
+            color={ option.hex }
+            value={ option.name }
+            checked={ option.name === selectedValue.name }
+            onChange={ () => onChange(option) }
           />
         )) }
       </div>
     </div>
   );
 };
-
 
 
 export default RadioButtonGroup;

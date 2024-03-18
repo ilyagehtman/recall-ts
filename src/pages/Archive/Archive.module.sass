@@ -1,0 +1,30 @@
+.archive
+  flex: 1
+  gap: 40px
+  display: flex
+  align-items: center
+  flex-direction: column
+
+  .title
+    gap: 10px
+    display: flex
+    align-items: center
+    flex-direction: column
+
+  .itemList
+    gap: 40px
+    display: grid
+    grid-template-columns: repeat(6, 1fr)
+    grid-template-rows: repeat(2, 1fr)
+
+    .item
+      width: 184px
+      height: 184px
+      cursor: pointer
+      background-color: var(--bg-color)
+      box-shadow: var(--container-shadow)
+      border-radius: 20px
+      transition: transform 0.3s ease
+
+      &:hover
+        transform: translateY(-6px)

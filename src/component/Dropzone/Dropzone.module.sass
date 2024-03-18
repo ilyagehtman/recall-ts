@@ -1,0 +1,51 @@
+.dropzone
+  flex: 1
+  display: flex
+  position: relative
+  align-items: center
+  flex-direction: column
+  justify-content: space-between
+  padding: 48px 0
+
+  .dropzoneContent
+    margin-top: 14px
+
+  .dropzoneDescription
+    gap: 6px
+    display: flex
+    align-items: center
+    flex-direction: column
+
+  .progressBar
+    height: 10px
+    width: 300px
+    overflow: hidden
+    border-radius: 6px
+    background-color: var(--alt-color)
+
+    div
+      height: 100%
+      background-color: var(--accent-color)
+      transition: all 0.5s ease-out
+
+
+.dragActive
+  display: flex
+  align-items: center
+  justify-content: center
+  animation: blink 1s ease-in-out alternate infinite
+
+  @keyframes blink
+    0%
+      background-color: var(--bg-color)
+    100%
+      background-color: var(--accent-color)
+
+  .dropzoneHeader
+    display: none
+
+  .dropzoneContent
+    display: none
+
+  .dropzoneDescription
+    display: none

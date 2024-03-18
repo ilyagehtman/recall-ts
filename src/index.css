@@ -7,7 +7,7 @@
     --alt-color: #E0E2E5;
     --accent-color: #FF9EC1;
     --button-shadow: 0 4px 4px 0 rgba(193, 197, 199, 0.60);
-    --preview-container-shadow: 0 4px 14px 0 #D9D9D9;
+    --container-shadow: 0 4px 14px 0 #D9D9D9;
 
     --font-size: 20px;
     --small-font-size: 16px;
@@ -21,13 +21,17 @@
 }
 
 :root[theme="dark"] {
-    --bg-color: #4C4D4E;
+    --bg-color: #130413;
 
     --color: #FFF;
     --alt-color: #E0E2E5;
-    --accent-color: #FF9EC1;
-    --button-shadow: 0 4px 4px 0 rgba(175, 175, 175, 0.6);
-    --preview-container-shadow: 0 4px 14px 0 rgba(175, 175, 175, 0.6)
+    --accent-color: #1aff00;
+    --button-shadow: 0 4px 4px 0 #bda7c7;
+    --container-shadow: 0 4px 14px 0 #bda7c7;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
 
 ::selection {
@@ -43,4 +47,9 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+a {
+    appearance: none;
+    text-decoration: none;
 }

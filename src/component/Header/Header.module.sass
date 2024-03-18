@@ -1,0 +1,40 @@
+.header
+  margin: auto
+  display: flex
+  justify-content: space-between
+  align-items: center
+  max-width: 1300px
+  height: 100%
+
+
+  nav
+    ul
+      gap: 45px
+      display: flex
+      list-style: none
+
+      li
+        a
+          color: var(--color)
+          font-size: var(--small-font-size)
+          font-weight: 400
+          font-family: "HelveticaNeueCyr", serif
+          transition: 0.3s ease-in-out
+
+          gap: 10px
+          display: flex
+          align-items: center
+          flex-direction: column
+
+          div
+            width: 10px
+            height: 10px
+            border-radius: 50%
+            transition: 0.3s ease-in-out
+            background-color: var(--color)
+
+          &.active
+            color: var(--accent-color)
+
+            div
+              background-color: var(--accent-color)
