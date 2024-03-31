@@ -1,13 +1,13 @@
 import React from "react";
 import classes from "./Archive.module.sass";
-import RecallContainer from "../../component/RecallContainer.tsx";
+import RecallLayout from "../../component/RecallLayout.tsx";
 import paragraphSvg from "../../assets/paragraph.svg";
 import { SmallString } from "../../component/String/String.tsx";
 
 type ArchiveProps = {}
 
 const Archive: React.FC<ArchiveProps> = () => {
-  return <RecallContainer>
+  return <RecallLayout>
     <div className={ classes.archive }>
       <div className={ classes.title }>
         <img src={ paragraphSvg } alt={ "p" }/>
@@ -36,7 +36,7 @@ const Archive: React.FC<ArchiveProps> = () => {
         <div className={ classes.item }/>
       </div>
     </div>
-  </RecallContainer>;
+  </RecallLayout>;
 };
 
 export default Archive;

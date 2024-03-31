@@ -18,16 +18,18 @@
     --adaptive-header-font-size: 26px;
 
     --recall-container-content-max-width: 1440px;
+    --footer-bg-gradient: linear-gradient(180deg, rgba(255, 158, 193, 0) 0%, rgba(255, 158, 193, 1) 100%)
 }
 
 :root[theme="dark"] {
-    --bg-color: #130413;
+    --bg-color: #000000;
 
-    --color: #FFF;
-    --alt-color: #E0E2E5;
-    --accent-color: #1aff00;
-    --button-shadow: 0 4px 4px 0 #bda7c7;
-    --container-shadow: 0 4px 14px 0 #bda7c7;
+    --color: rgb(255, 255, 255);
+    --alt-color: rgb(169, 169, 169);
+    --accent-color: rgb(255, 255, 255);
+    --button-shadow: 0 4px 4px 0 rgb(255, 255, 255);
+    --container-shadow: 0 4px 14px 0 rgb(255, 255, 255);
+    --footer-bg-gradient: linear-gradient(180deg, rgba(255, 158, 193, 0) 0%, rgb(255, 255, 255) 100%)
 }
 
 ::-webkit-scrollbar {
@@ -52,4 +54,11 @@ body {
 a {
     appearance: none;
     text-decoration: none;
+}
+
+span {
+    color: var(--color);
+    font-size: var(--font-size);
+    font-family: "HelveticaNeueCyr", serif;
+    white-space: pre-wrap
 }

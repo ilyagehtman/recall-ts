@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import classes from "./Cart.module.sass";
-import RecallContainer from "../../component/RecallContainer.tsx";
+import RecallLayout from "../../component/RecallLayout.tsx";
 import { HeaderString, String } from "../../component/String/String.tsx";
 import Button from "../../component/Button/Button.tsx";
 import { useNavigate } from "react-router-dom";
@@ -25,7 +25,7 @@ const Cart: React.FC<CartProps> = () => {
         return product.type.markup + product.order.markup + product.size.markup;
     };
 
-    return <RecallContainer>
+    return <RecallLayout>
         <div className={ classes.cart }>
             <div className={ classes.previews }>
                 { products.data.length > 0
@@ -37,7 +37,7 @@ const Cart: React.FC<CartProps> = () => {
                                 </div>
                                 <div className={ classes.productInfoContainer }>
                                     <div className={ classes.productTitle }>
-                                        <String bold value={ product.order.name }/>
+                                        <String bold value={ product.order.name! }/>
                                         <String bold value={ `${ getProductPrice(product) } руб.` }/>
                                     </div>
                                     <div className={ classes.productInfo }>
@@ -74,7 +74,7 @@ const Cart: React.FC<CartProps> = () => {
               </div>
             }
         </div>
-    </RecallContainer>;
+    </RecallLayout>;
 };
 
 export default Cart;

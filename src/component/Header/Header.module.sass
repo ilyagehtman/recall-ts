@@ -3,9 +3,17 @@
   display: flex
   justify-content: space-between
   align-items: center
-  max-width: 1300px
+  max-width: 1365px
+  width: 100%
   height: 100%
 
+  .devMode
+    gap: 10px
+    display: flex
+    padding: 8px
+    border-radius: 10px
+    align-items: center
+    border: 1px dashed purple
 
   nav
     ul
@@ -32,6 +40,26 @@
             border-radius: 50%
             transition: 0.3s ease-in-out
             background-color: var(--color)
+
+          &.active
+            color: var(--accent-color)
+
+            div
+              background-color: var(--accent-color)
+
+.header.white
+  nav
+    ul
+      li
+        a
+          color: var(--bg-color)
+
+          div
+            width: 10px
+            height: 10px
+            border-radius: 50%
+            transition: 0.3s ease-in-out
+            background-color: var(--bg-color)
 
           &.active
             color: var(--accent-color)

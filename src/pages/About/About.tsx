@@ -1,18 +1,18 @@
 import React from "react";
 import classes from "./About.module.sass";
-import RecallContainer from "../../component/RecallContainer.tsx";
+import RecallLayout from "../../component/RecallLayout.tsx";
 import { SmallString } from "../../component/String/String.tsx";
 import paragraphSvg from "../../assets/paragraph.svg";
 
 type AboutProps = {}
 
 const About: React.FC<AboutProps> = () => {
-  return <RecallContainer>
+  return <RecallLayout>
     <div className={ classes.about }>
       <Applique/>
       <Title/>
     </div>
-  </RecallContainer>;
+  </RecallLayout>;
 };
 
 const Applique: React.FC<AboutProps> = () => {

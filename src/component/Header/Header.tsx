@@ -2,15 +2,20 @@ import React from "react";
 import classes from "./Header.module.sass";
 import { NavLink } from "react-router-dom";
 import Logo from "../Logo/Logo.tsx";
+import classNames from "classnames";
 
 interface HeaderProps {
-
+    white?: boolean;
 }
 
-const Header: React.FC<HeaderProps> = () => {
-    return <div className={ classes.header }>
+const Header: React.FC<HeaderProps> = ({ white }) => {
+
+    return <div className={ classNames(
+        classes.header,
+        { [classes.white]: white }
+    ) }>
         <NavLink to={ "/" }>
-            <Logo/>
+            <Logo alt={ white }/>
         </NavLink>
         <nav>
             <ul>

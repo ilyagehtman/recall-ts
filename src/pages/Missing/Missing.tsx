@@ -1,12 +1,12 @@
-import React from "react";
-import classes from "./Missing.module.sass";
+import React from 'react'
+import RecallLayout from '../../component/RecallLayout.tsx'
 
 type MissingProps = {}
 
 const Missing: React.FC<MissingProps> = () => {
-  return <div className={ classes.missing }>
+    return <RecallLayout>
 
-  </div>;
-};
+    </RecallLayout>
+}
 
-export default Missing;
+export default Missing

@@ -47,9 +47,12 @@ const getColorVariable = (color?: "dark" | "light"): string => {
     }
 };
 
-export const HeaderString = ({ value, color }: CommonStringProps & HeaderStringProps) => (
+export const HeaderString = ({ value, center, color }: CommonStringProps & HeaderStringProps) => (
     <h1
-        style={ { color: `var(${ getColorVariable(color) })` } }
+        style={ {
+            color: `var(${ getColorVariable(color) })`,
+            textAlign: center ? "center" : "initial"
+        } }
         className={ classes.headerString }
     >
         { value }
