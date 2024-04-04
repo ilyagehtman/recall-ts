@@ -1,119 +1,111 @@
-import RecallLayout from '../../component/RecallLayout.tsx'
 import classes from './Editor.module.sass'
 import { useState } from 'react'
 import { Product } from '../../domain/Product.ts'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import ControlPanel from '../../component/ControlPanel/ControlPanel.tsx'
 import Preview from '../../component/Preview/Preview.tsx'
-import { v4 as uuidv4 } from 'uuid'
-import { Matrix } from '../../domain/Matrix.ts'
 import { useAppSelector } from '../../store/store.ts'
 import { useDispatch } from 'react-redux'
 import { push } from '../../store/productSlice.ts'
-import { CartButton } from '../../component/Button/Button.tsx'
-import { HeaderString } from '../../component/String/String.tsx'
+import uuid from 'react-uuid'
 
-const initialProduct: Product = {
-    order: { markup: 900 },
-    size: { name: 'большой', markup: 800 },
-    type: { name: 'бусина', markup: 100 },
-    color: { name: 'розовый', hex: '#fea2c4' }
-}
+const Editor = (order: { name: string, markup: number }) => {
+  const navigate = useNavigate()
 
-const Editor = () => {
-    const { type } = useParams()
-    const navigate = useNavigate()
-    const dispatch = useDispatch()
-    const products = useAppSelector((state) => state.products)
+  const dispatch = useDispatch()
+  const products = useAppSelector(state => state.products)
 
-    const [matrix, setMatrix] = useState<Matrix | null>(null)
+  const [currentProduct, setCurrentProduct] = useState<Product>(
+    {
+      id: uuid(),
+      order: order,
+      type: { name: 'бусина', markup: 300 },
+      size: { name: 'большой' },
+      color: { name: 'розовый', hex: '#fea2c4' },
+      laceColor: order.name === 'брелок' ? { hex: '#C1D4E1', name: 'почти голубой' } : undefined
+    }
+  )
 
-    const [product, setProduct] = useState<Product>(
-        Object.assign(
-            {
-                id: uuidv4(),
-                order:
-                    (type === 'earring' && 'серьга') ??
-                    (type === 'keychain' && 'брелок') ?? 'брелок'
-            },
-            initialProduct
-        )
+  const [imgBase64Data, setImgBase64Data] = useState<string | undefined>()
+
+  const [canvas, setCanvas] = useState<HTMLCanvasElement | undefined>()
+  const [canvasTiles, setCanvasTiles] = useState<number>(1)
+  const [canvasEllipseSize, setCanvasEllipseSize] = useState<number>(1)
+
+  const handleOneMoreButton = () => {
+    setImgBase64Data(undefined)
+
+    dispatch(
+      push(
+        {
+          ...currentProduct,
+          finishedPicture: canvas?.toDataURL()
+        }
+      )
     )
 
-    const [matrixSize, setMatrixSize] = useState<number>(0)
-    const [ellipseRadius, setEllipseRadius] = useState<number>(0)
-    const [canvas, setCanvas] = useState<HTMLCanvasElement | null>(null)
+    setCurrentProduct(
+      {
+        id: uuid(),
+        order,
+        type: { name: 'бусина', markup: 300 },
+        size: { name: 'большой' },
+        color: { name: 'розовый', hex: '#fea2c4' },
+        laceColor: order.name === 'брелок' ? { hex: '#C1D4E1', name: 'дождь' } : undefined
+      }
+    )
+  }
 
-    const handleOneMoreButton = () => {
-        setMatrix(null)
-        dispatch(push({ ...product!, imgSrc: canvas?.toDataURL() }))
-        setProduct(
-            Object.assign(
-                { id: uuidv4() },
-                initialProduct
-            )
+  const handleRdyButton = () => {
+    if (products.data.length > 0 && !imgBase64Data) {
+      navigate('/cart')
+    } else {
+      dispatch(
+        push(
+          {
+            ...currentProduct,
+            finishedPicture: canvas?.toDataURL()
+          }
         )
+      )
+
+      setImgBase64Data(undefined)
+      navigate('/cart')
     }
+  }
 
-    const handleRdyButton = () => {
-        if (products.data.length > 0 && !matrix) {
-            navigate('/cart')
-        } else {
-            setMatrix(null)
-            dispatch(push({ ...product!, imgSrc: canvas?.toDataURL() }))
-            navigate('/cart')
-        }
-    }
+  return (
+    <div className={ classes.editor }>
+      <Preview
+        product={ currentProduct }
+        setProduct={ setCurrentProduct }
 
-    if (type !== 'keychain' && type !== 'earring') {
-        return <RecallLayout>
-            <div>
-                <HeaderString value={ `Продукт '${ type }' не поддерживается` }/>
-            </div>
-        </RecallLayout>
-    }
+        canvasTiles={ canvasTiles }
+        canvasEllipseSize={ canvasEllipseSize }
 
-    return <RecallLayout>
-        <div className={ classes.editor }>
+        imgBase64Data={ imgBase64Data }
+        setImgBase64Data={ setImgBase64Data }
 
-            <Preview
-                product={ product }
-                setProduct={ setProduct }
-                matrixSize={ matrixSize }
-                ellipseRadius={ ellipseRadius }
-                matrix={ matrix }
-                setMatrix={ setMatrix }
-                setCanvas={ setCanvas }
-            />
+        setCanvas={ setCanvas }
+      />
+      <ControlPanel
+        product={ currentProduct }
+        setProduct={ setCurrentProduct }
 
-            <ControlPanel
-                product={ product }
-                setProduct={ setProduct }
+        canvasTiles={ canvasTiles }
+        setCanvasTiles={ setCanvasTiles }
 
-                matrixSize={ matrixSize }
-                setMatrixSize={ setMatrixSize }
+        canvasEllipseSize={ canvasEllipseSize }
+        setCanvasEllipseSize={ setCanvasEllipseSize }
 
-                ellipseRadius={ ellipseRadius }
-                setEllipseRadius={ setEllipseRadius }
+        readyButtonDisabled={ products.data.length === 0 && !imgBase64Data }
+        readyButtonOnClick={ handleRdyButton }
 
-                readyButtonDisabled={ products.data.length === 0 && matrix === null }
-                readyButtonOnClick={ handleRdyButton }
-
-                oneMoreButtonDisabled={ matrix === null }
-                oneMoreButtonOnClick={ handleOneMoreButton }
-            />
-
-            <div className={ classes.productCount }>
-                {
-                    products.data.length > 0 && <CartButton
-                    onClick={ () => navigate('/cart') }
-                    value={ `${ products.data.length }` }
-                  />
-                }
-            </div>
-
-        </div>
-    </RecallLayout>
+        oneMoreButtonDisabled={ !imgBase64Data }
+        oneMoreButtonOnClick={ handleOneMoreButton }
+      />
+    </div>
+  )
 }
 
 export default Editor

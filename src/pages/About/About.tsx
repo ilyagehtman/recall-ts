@@ -1,19 +1,9 @@
-import React from "react";
-import classes from "./About.module.sass";
-import RecallLayout from "../../component/RecallLayout.tsx";
-import { SmallString } from "../../component/String/String.tsx";
-import paragraphSvg from "../../assets/paragraph.svg";
+import React from 'react'
+import classes from './About.module.sass'
+import { SmallString } from '../../component/String/String.tsx'
+import paragraphSvg from '../../assets/paragraph.svg'
 
 type AboutProps = {}
-
-const About: React.FC<AboutProps> = () => {
-  return <RecallLayout>
-    <div className={ classes.about }>
-      <Applique/>
-      <Title/>
-    </div>
-  </RecallLayout>;
-};
 
 const Applique: React.FC<AboutProps> = () => {
   return (
@@ -43,23 +33,30 @@ const Applique: React.FC<AboutProps> = () => {
           stroke="#E0E2E5" strokeWidth="3" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
       </svg>
     </div>
-  );
-};
+  )
+}
+
+const About: React.FC<AboutProps> = () => {
+  return <div className={ classes.about }>
+    <Applique/>
+    <Title/>
+  </div>
+}
 
 const Title: React.FC<AboutProps> = () => {
   return (
     <div className={ classes.title }>
-      <img src={ paragraphSvg } alt={ "p" }/>
+      <img src={ paragraphSvg } alt={ 'p' }/>
       <SmallString
         center
-        value={ "часто, чтобы сохранить воспоминание о моменте, мы забираем с собой и храним памятные предметы. это может быть что угодно:\n" +
-          "монетка, камень, билет из автобуса. но одно важно точно — все эти предметы не имеют материальной ценности. во время, когда\n" +
-          "большинство фото хранятся в галерее, мы все чаще не можем испытать с ними эмоциональную связь и удаляем воспоминания\n" +
-          "за ненадобностью. recall создан, чтобы переносить воспоминания из пикселей в материальный мир, создавать новую связь между\n" +
-          "человеком, воспоминаниями и предметом." }
+        value={ 'часто, чтобы сохранить воспоминание о моменте, мы забираем с собой и храним памятные предметы. это может быть что угодно:\n' +
+          'монетка, камень, билет из автобуса. но одно важно точно — все эти предметы не имеют материальной ценности. во время, когда\n' +
+          'большинство фото хранятся в галерее, мы все чаще не можем испытать с ними эмоциональную связь и удаляем воспоминания\n' +
+          'за ненадобностью. recall создан, чтобы переносить воспоминания из пикселей в материальный мир, создавать новую связь между\n' +
+          'человеком, воспоминаниями и предметом.' }
       />
     </div>
-  );
-};
+  )
+}
 
-export default About;
+export default About

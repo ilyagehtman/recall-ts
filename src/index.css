@@ -32,33 +32,21 @@
     --footer-bg-gradient: linear-gradient(180deg, rgba(255, 158, 193, 0) 0%, rgb(255, 255, 255) 100%)
 }
 
-::-webkit-scrollbar {
-    display: none;
-}
-
 ::selection {
-    background-color: var(--accent-color);
     color: var(--bg-color);
-}
-
-body {
-    background-color: var(--bg-color);
+    background-color: var(--accent-color);
 }
 
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
 }
 
-a {
-    appearance: none;
-    text-decoration: none;
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
 }
 
-span {
-    color: var(--color);
-    font-size: var(--font-size);
-    font-family: "HelveticaNeueCyr", serif;
-    white-space: pre-wrap
+a {
+    text-decoration: none;
 }

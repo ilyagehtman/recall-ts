@@ -1,23 +1,22 @@
-import React from "react";
-import classes from "./Archive.module.sass";
-import RecallLayout from "../../component/RecallLayout.tsx";
-import paragraphSvg from "../../assets/paragraph.svg";
-import { SmallString } from "../../component/String/String.tsx";
+import React from 'react'
+import classes from './Archive.module.sass'
+import paragraphSvg from '../../assets/paragraph.svg'
+import { SmallString } from '../../component/String/String.tsx'
 
 type ArchiveProps = {}
 
 const Archive: React.FC<ArchiveProps> = () => {
-  return <RecallLayout>
+  return (
     <div className={ classes.archive }>
       <div className={ classes.title }>
-        <img src={ paragraphSvg } alt={ "p" }/>
+        <img src={ paragraphSvg } alt={ 'p' }/>
         <SmallString
           center
           value={
-            "архив форм, созданных\n" +
-            "пользователями. делитесь своими\n" +
-            "зашифрованными\n" +
-            "воспоминаниями"
+            'архив форм, созданных\n' +
+            'пользователями. делитесь своими\n' +
+            'зашифрованными\n' +
+            'воспоминаниями'
           }
         />
       </div>
@@ -36,7 +35,7 @@ const Archive: React.FC<ArchiveProps> = () => {
         <div className={ classes.item }/>
       </div>
     </div>
-  </RecallLayout>;
-};
+  )
+}
 
-export default Archive;
+export default Archive

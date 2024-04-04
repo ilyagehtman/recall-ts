@@ -1,6 +1,6 @@
-import React from "react";
-import { String } from "../String/String.tsx";
-import classes from "./RadioButton.module.sass";
+import React from 'react'
+import { String } from '../String/String.tsx'
+import classes from './RadioButton.module.sass'
 
 type RadioButtonProps = {
   label: string;
@@ -20,8 +20,8 @@ const RadioButton: React.FC<RadioButtonProps> = ({ label, value, checked, onChan
       />
       <String value={ label }/>
     </label>
-  );
-};
+  )
+}
 
 
 type ColorRadioButtonProps = {
@@ -33,19 +33,19 @@ type ColorRadioButtonProps = {
 
 export const ColorRadioButton: React.FC<ColorRadioButtonProps> = ({ color, value, checked, onChange }) => {
   return (
-    <div className={ classes.colorRadioButton }>
+    <div className={ classes.colorRadioButton } title={ value }>
       <input
         type="radio"
         value={ value }
         checked={ checked }
         onChange={ onChange }
         style={ {
-          border: checked ? `6px solid ${ color }` : "none",
-          backgroundColor: checked ? "var(--color)" : `${ color }`
+          border: checked ? `6px solid ${ color }` : 'none',
+          backgroundColor: checked ? 'var(--color)' : `${ color }`
         } }
       />
     </div>
-  );
-};
+  )
+}
 
-export default RadioButton;
+export default RadioButton

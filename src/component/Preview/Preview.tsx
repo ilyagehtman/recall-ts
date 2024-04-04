@@ -1,46 +1,45 @@
-import React, { SetStateAction } from "react";
-import classes from "./Preview.module.sass";
-import { Product } from "../../domain/Product.ts";
-import { Matrix } from "../../domain/Matrix.ts";
-import Canvas from "../Canvas/Canvas.tsx";
-import Dropzone from "../Dropzone/Dropzone.tsx";
+import React, { SetStateAction } from 'react'
+import classes from './Preview.module.sass'
+import { Product } from '../../domain/Product.ts'
+import Dropzone from '../Dropzone/Dropzone.tsx'
+import Canvas from '../Canvas/Canvas.tsx'
 
 interface PreviewProps {
-    product: Product;
-    setProduct: React.Dispatch<SetStateAction<Product>>;
-    matrixSize: number;
-    ellipseRadius: number;
+  product: Product
+  setProduct: React.Dispatch<SetStateAction<Product>>
 
-    matrix: Matrix | null;
-    setMatrix: React.Dispatch<SetStateAction<Matrix | null>>;
-    setCanvas: React.Dispatch<SetStateAction<HTMLCanvasElement | null>>;
+  canvasTiles: number
+  canvasEllipseSize: number
+
+  imgBase64Data?: string
+  setImgBase64Data: React.Dispatch<SetStateAction<string | undefined>>
+
+  setCanvas: React.Dispatch<SetStateAction<HTMLCanvasElement | undefined>>
 }
 
 const Preview: React.FC<PreviewProps> = ({
-                                             product,
-                                             matrixSize,
-                                             ellipseRadius,
-                                             matrix,
-                                             setMatrix,
-                                             setCanvas
+                                           product,
+
+                                           canvasTiles,
+                                           canvasEllipseSize,
+
+                                           imgBase64Data,
+                                           setImgBase64Data,
+
+                                           setCanvas
                                          }) => {
-    return <div className={ classes.preview }>
-        {
-            matrix
-                ? <Canvas
-                    matrix={ matrix }
-                    matrixSize={ matrixSize }
-                    ellipseRadius={ ellipseRadius }
+  return <div className={ classes.preview }>
+    {
+      imgBase64Data ? <Canvas
+          product={ product }
+          canvasTiles={ canvasTiles }
+          canvasEllipseSize={ canvasEllipseSize }
+          imgBase64Data={ imgBase64Data }
+          setCanvas={ setCanvas }
+        />
+        : <Dropzone productTypeName={ product.type.name } setImgBase64Data={ setImgBase64Data }/>
+    }
+  </div>
+}
 
-                    product={ product! }
-                    setCanvas={ setCanvas }
-                />
-                : <Dropzone
-                    product={ product }
-                    setMatrix={ setMatrix }
-                />
-        }
-    </div>;
-};
-
-export default Preview;
+export default Preview

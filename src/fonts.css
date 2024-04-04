@@ -27,3 +27,23 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
+.string {
+    color: var(--color);
+    font-size: var(--font-size);
+    font-family: "HelveticaNeueCyr", serif;
+    text-transform: lowercase;
+    transition: 0.2s ease;
+}
+
+.string--bold {
+    font-weight: 600;
+}
+
+.string--small {
+    font-size: var(--small-font-size);
+}
+
+.string--alt {
+    color: var(--bg-color);
+}

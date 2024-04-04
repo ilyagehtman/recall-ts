@@ -1,8 +1,12 @@
 export type Product = {
-    id?: string
-    imgSrc?: string
-    type: { name: string, markup: number }
-    order: { name?: string, markup: number }
-    size: { name: string, markup: number }
-    color: { name: string, hex: string }
+  id: string
+
+  type: { name: string, markup: number }
+  order: { name: string, markup: number }
+
+  size: { name: string }
+  color: { name: string, hex: string }
+  laceColor?: { name: string, hex: string }
+
+  finishedPicture?: string
 }

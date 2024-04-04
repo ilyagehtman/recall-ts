@@ -6,6 +6,9 @@
   flex-direction: column
   justify-content: space-between
   padding: 48px 0
+  background-color: transparent
+  /* Исходно прозрачный фон */
+  transition: background-color 0.5s ease
 
   .dropzoneContent
     margin-top: 14px
@@ -16,12 +19,14 @@
     align-items: center
     flex-direction: column
 
-  .progressBar
-    height: 10px
-    width: 300px
-    overflow: hidden
-    border-radius: 6px
-    background-color: var(--alt-color)
+  .productTypeImage
+    width: 120px
+    height: 120px
+
+    img
+      width: 120px
+      height: 120px
+
 
     div
       height: 100%
@@ -30,22 +35,5 @@
 
 
 .dragActive
-  display: flex
-  align-items: center
-  justify-content: center
-  animation: blink 1s ease-in-out alternate infinite
-
-  @keyframes blink
-    0%
-      background-color: var(--bg-color)
-    100%
-      background-color: var(--accent-color)
-
-  .dropzoneHeader
-    display: none
-
-  .dropzoneContent
-    display: none
-
-  .dropzoneDescription
-    display: none
+  background: rgb(255, 158, 193)
+  background: linear-gradient(180deg, rgba(255, 158, 193, 0) 0%, rgba(255, 158, 193, 1) 100%)
