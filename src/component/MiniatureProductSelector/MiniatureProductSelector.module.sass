@@ -1,0 +1,64 @@
+.miniatureProductSelector
+  cursor: pointer
+
+  .triangle
+    margin: auto auto -5px
+    width: 18px
+    height: 17px
+    background-color: var(--bg-color)
+    clip-path: polygon(50% 0, 100% 100%, 0% 100%)
+
+  .body
+    width: 272px
+    height: 138px
+
+    gap: 30px
+    display: flex
+    align-items: center
+    justify-content: center
+
+    background-color: var(--bg-color)
+    box-shadow: var(--container-shadow)
+    border-radius: 20px
+
+    z-index: 999
+
+    .selector
+      width: 106px
+      height: 106px
+      position: relative
+      border-radius: 50%
+
+      display: flex
+      align-items: center
+      flex-direction: column
+      justify-content: center
+      overflow: hidden
+      transition: 0.2s ease-in-out
+
+      img
+        z-index: 99
+        position: absolute
+        width: 100%
+        height: 100%
+        object-fit: contain
+        filter: blur(2px)
+
+      &:hover
+        transform: scale(0.96)
+
+      &.active
+        transform: scale(0.96)
+        //border: 2px solid var(--accent-color)
+
+        img
+          filter: initial
+          transform: scale(1.4)
+
+        h1
+          display: none
+
+      h1
+        z-index: 100
+        font-size: 26px
+        color: var(--bg-color)

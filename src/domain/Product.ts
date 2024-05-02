@@ -7,6 +7,6 @@ export type Product = {
   size: { name: string }
   color: { name: string, hex: string }
   laceColor?: { name: string, hex: string }
-
+  
   finishedPicture?: string
 }

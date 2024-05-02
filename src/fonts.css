@@ -30,20 +30,47 @@
 
 .string {
     color: var(--color);
+    transition: 0.2s ease;
+    white-space: pre-wrap;
     font-size: var(--font-size);
     font-family: "HelveticaNeueCyr", serif;
-    text-transform: lowercase;
-    transition: 0.2s ease;
 }
 
-.string--bold {
+.boldString {
     font-weight: 600;
 }
 
-.string--small {
+.smallString {
     font-size: var(--small-font-size);
 }
 
-.string--alt {
+.altString {
+    color: var(--bg-color);
+}
+
+.centerString {
+    text-align: center;
+}
+
+.paragraphString {
+    color: var(--alt-color);
+    font-size: var(--small-font-size);
+}
+
+.headerString {
+    line-height: 100%;
+    white-space: pre-wrap;
+    letter-spacing: -0.8px;
+    text-transform: uppercase;
+    color: var(--accent-color);
+    font-size: var(--header-font-size);
+    font-family: "TTRoundsNeueEducationalCompressed", serif;
+}
+
+.altHeaderString {
+    color: var(--alt-color);
+}
+
+.whiteHeaderString {
     color: var(--bg-color);
 }

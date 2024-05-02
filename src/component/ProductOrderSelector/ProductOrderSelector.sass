@@ -1,0 +1,103 @@
+.product-order-selector
+  width: 560px
+  height: 560px
+
+  border-radius: 50%
+  position: relative
+
+  overflow: hidden
+
+  display: flex
+  appearance: none
+  align-items: center
+  justify-content: center
+  cursor: pointer
+
+  &__slide
+    width: 560px
+    height: 560px
+
+    position: absolute
+    transform: scale(1.06)
+    transition: transform 0.5s linear
+    border-radius: 50%
+
+    img
+      width: 560px
+      height: 560px
+
+  &__label
+    z-index: 999
+    transform: scale(1)
+    position: absolute
+    margin-bottom: 46px
+    transition: 0.2s ease-in-out
+
+  &__mask
+    object-fit: cover
+    width: 560px
+    height: 560px
+    border-radius: 50%
+    opacity: 1
+    z-index: 2
+    filter: blur(10px)
+    transform: scale(1.06)
+    user-select: none
+    pointer-events: none
+    transition: 0.4s ease-out
+
+  &__radar
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    position: absolute
+    border-radius: 50%
+    z-index: 3
+    opacity: 0.4
+    user-select: none
+    pointer-events: none
+    background-size: auto
+    transition: 0.1s ease-in-out
+    animation: rotate 5s ease-in-out infinite
+    background: conic-gradient(rgba(0, 255, 0, 0), rgba(242, 106, 159, 0.96))
+
+    @keyframes rotate
+      0%
+        transform: rotate(0deg)
+
+      100%
+        transform: rotate(360deg)
+
+  &__ellipse
+    opacity: 1
+    width: 16px
+    height: 16px
+    z-index: 12
+    position: absolute
+    border-radius: 50%
+    transition: 0.1s ease-in-out
+    background-color: var(--bg-color)
+
+  &:hover
+    .product-order-selector__slide
+      transform: scale(1)
+
+    .product-order-selector__mask
+      opacity: 0
+      filter: initial
+      transform: scale(1)
+
+    .product-order-selector__label
+      transform: scale(0)
+
+    .product-order-selector__radar
+      opacity: 0
+
+    .product-order-selector__ellipse
+      opacity: 0
+
+
+
+
+

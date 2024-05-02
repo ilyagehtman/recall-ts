@@ -1,0 +1,290 @@
+.landing2
+  height: 100vh
+  overflow: scroll
+  scroll-snap-type: y mandatory
+
+  section
+    margin: auto
+    height: 100vh
+    scroll-snap-align: start
+
+  .main
+    padding: 10px
+    display: flex
+    align-items: center
+    justify-content: center
+
+    .animation
+      flex: 1
+      height: 100%
+      overflow: hidden
+      position: relative
+      border-radius: 20px
+
+      display: flex
+      align-items: center
+      justify-content: center
+
+      .greetings
+        z-index: 11
+        position: absolute
+        color: var(--bg-color)
+
+      .img
+        width: 100%
+        height: 100%
+        object-fit: cover
+        filter: blur(10px)
+        transform: scale(1.1)
+
+  .tutorial
+    display: flex
+    flex-direction: column
+    width: var(--recall-container-content-max-width)
+
+    .tutorialBody
+      flex: 1
+      display: flex
+      margin-top: 140px
+      flex-direction: column
+
+      .tutorialTitle
+        display: flex
+        margin-right: 68px
+        justify-content: space-between
+        margin-bottom: 40px
+
+        .tutorialDetails
+          gap: 14px
+          display: flex
+          margin-top: 88px
+
+          .ph
+            margin-top: 3px
+
+            span
+              font-size: var(--header-font-size)
+
+      .tutorialContent
+        flex: 1
+        display: flex
+        justify-content: center
+        flex-direction: column
+        margin-bottom: 150px
+
+        .topArrows
+          margin-bottom: 22px
+
+          svg:nth-child(1)
+            margin-left: 65px
+
+          svg:nth-child(2)
+            margin-left: 310px
+
+        .bottomArrows
+          margin-top: 16px
+
+          svg:nth-child(1)
+            margin-left: 480px
+
+
+        .steps
+          display: flex
+          justify-content: space-between
+
+          .step
+            display: flex
+            cursor: pointer
+            position: relative
+            margin: 0 40px
+
+            div:nth-child(1)
+              opacity: 0
+              width: 190px
+              height: 190px
+              overflow: hidden
+              position: absolute
+              border-radius: 10px
+              transition: 0.2s ease-in-out
+
+            div:nth-child(2)
+              span
+                font-size: 50px
+
+            div:nth-child(3)
+              margin-top: 44px
+
+              span
+                font-size: 20px
+
+            &:hover
+              div:nth-child(1)
+                opacity: 1
+
+            &:nth-child(1)
+              div:nth-child(1)
+                top: -200px
+                left: -25px
+
+            &:nth-child(2)
+              div:nth-child(1)
+                top: 47px
+                left: -54px
+
+            &:nth-child(3)
+              div:nth-child(1)
+                top: -160px
+                left: -14px
+
+            &:nth-child(4)
+              div:nth-child(1)
+                top: -10
+                left: 43px
+
+  .orderSelection
+    display: flex
+    flex-direction: column
+    justify-content: center
+
+    .selections
+      padding-top: 60px
+      margin: auto
+      width: var(--recall-container-content-max-width)
+      flex: 1
+      display: flex
+
+      align-items: center
+      justify-content: space-between
+
+      .arrow
+        transform: rotate(-90deg)
+
+      .choice
+        position: relative
+        width: 600px
+        height: 600px
+        cursor: pointer
+        overflow: hidden
+        border-radius: 50%
+        display: flex
+        align-items: center
+        justify-content: center
+
+      .title
+        transform: scale(1)
+        z-index: 999
+        margin-bottom: 50px
+        transition: 0.2s ease-in-out
+
+      img
+        width: 600px
+        height: 600px
+        object-fit: cover
+        border-radius: 50%
+        position: absolute
+        user-select: none
+        pointer-events: none
+
+      .img
+        opacity: 0
+        transform: scale(1.06)
+        transition: 0.4s ease-in-out
+
+      .imgF
+        opacity: 1
+        filter: blur(20px)
+        transform: scale(1.06)
+        transition: 0.4s ease-out
+
+      .radar
+        top: 0
+        left: 0
+        right: 0
+        bottom: 0
+        position: absolute
+        border-radius: 50%
+        z-index: 3
+        opacity: 0.4
+        pointer-events: none
+        background-size: auto
+        transition: 0.1s ease-in-out
+        animation: rotate 5s ease-in-out infinite
+        background: conic-gradient(rgba(0, 255, 0, 0), rgba(242, 106, 159, 0.96))
+
+        @keyframes rotate
+          0%
+            transform: rotate(0deg)
+
+          100%
+            transform: rotate(360deg)
+
+        .ellipse
+          opacity: 1
+          width: 16px
+          height: 16px
+          z-index: 999
+          position: absolute
+          border-radius: 50%
+          transition: 0.1s ease-in-out
+          background-color: var(--bg-color)
+
+        &:hover
+          .img
+            opacity: 1
+            transform: scale(1)
+
+          .imgF
+            opacity: 0
+            filter: initial
+            transform: scale(1)
+
+          .title
+            transform: scale(0)
+
+          .radar
+            opacity: 0
+
+          .ellipse
+            opacity: 0
+
+
+.circle
+  z-index: 11
+  position: absolute
+
+  width: 100%
+  height: 100%
+  max-width: 600px
+  max-height: 600px
+
+  overflow: hidden
+  border-radius: 50%
+  transform: rotate(45deg)
+  animation: animation 6s infinite linear
+
+  img
+    width: 100%
+    height: 100%
+    object-fit: cover
+    filter: blur(4px)
+    transform: rotate(-45deg) scale(1.6)
+
+  @keyframes animation
+    0%
+      clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0)
+    12.5%
+      clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0)
+    25%
+      clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%)
+    37.5%
+      clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%)
+    50%
+      clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0)
+    62.5%
+      clip-path: polygon(50% 50%, 100% 0, 100% 0, 100% 100%, 0 100%, 0 0)
+    75%
+      clip-path: polygon(50% 50%, 100% 100%, 100% 0, 100% 100%, 0 100%, 0 0)
+    87.5%
+      clip-path: polygon(50% 50%, 0 100%, 0 100%, 0 100%, 0 100%, 0 0)
+    100%
+      clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0)

@@ -1,34 +1,32 @@
-import classes from "./Button.module.scss";
-import classNames from "classnames";
+import './Button.sass'
+import classNames from 'classnames'
+import Loader from '../Loader/Loader.tsx'
 
 type ButtonProps = {
-    value: string;
-    alt?: boolean;
-    onClick?: () => void;
-    disabled?: boolean;
-    submit?: boolean
+  value: string;
+  alt?: boolean;
+  onClick?: () => void;
+  disabled?: boolean;
+  submit?: boolean;
+  loading?: boolean;
 }
 
-const Button = ({ value, alt, onClick, disabled, submit }: ButtonProps) => {
-    return <input
-        type={ submit ? "submit" : "button" }
-        disabled={ disabled }
-        onClick={ onClick }
-        className={
-            classNames(
-                classes.button, {
-                    [classes.alt]: alt
-                }
-            )
-        }
-        value={ value }
-    />;
-};
+const Button = ({ value, alt, onClick, disabled, submit, loading }: ButtonProps) => {
+  return <button
+    type={ submit ? 'submit' : 'button' }
+    disabled={ disabled }
+    onClick={ onClick }
+    className={ classNames(
+      'button', { ['button--alt']: alt })
+    }
+  >
+    { loading
+      ? <div className={ 'button__loading' }>
+        <Loader/>
+      </div>
+      : value
+    }
+  </button>
+}
 
-export const CartButton = ({ value, onClick, disabled }: ButtonProps) => {
-    return <button disabled={ disabled } onClick={ onClick } className={ classes.cartButton }>
-        { value }
-    </button>;
-};
-
-export default Button;
+export default Button

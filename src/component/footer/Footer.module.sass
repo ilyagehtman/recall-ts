@@ -1,0 +1,63 @@
+.footer
+  display: flex
+  min-height: 100px
+  background: var(--footer-bg-gradient)
+  padding: 0 20px
+
+  a:hover
+    animation: blinker 0.4s linear infinite
+
+    @keyframes blinker
+      50%
+        opacity: 0
+
+  .body
+    height: 100%
+    margin: auto
+    padding: 15px 0
+    position: relative
+    flex: 1
+    max-width: var(--recall-container-content-max-width)
+
+    display: flex
+    justify-content: space-between
+    align-items: end
+
+
+  .recallContacts
+    display: flex
+    align-items: end
+
+    div
+      display: flex
+      flex-direction: column
+
+      div
+        gap: 24px
+        display: flex
+        flex-direction: row
+
+  .pageUpButton
+    left: 50%
+    transform: translateX(-40%)
+
+    position: absolute
+    gap: 12px
+    display: flex
+    align-items: center
+    flex-direction: column
+    cursor: pointer
+
+    &:hover
+      span
+        color: var(--bg-color)
+
+  .rightWrapper
+    gap: 20px
+    display: flex
+    align-items: end
+
+  .authorActions
+    display: flex
+    flex-direction: column
+    align-items: end

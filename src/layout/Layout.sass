@@ -1,6 +1,20 @@
 .layout
   height: 100vh
 
+  &__header
+    top: 0
+    left: 0
+    right: 0
+    position: fixed
+    height: 160px
+    padding: 0 70px
+
+    display: flex
+    align-items: center
+
+    z-index: 999
+    backdrop-filter: blur(4px)
+
   display: flex
   flex-direction: column
 
